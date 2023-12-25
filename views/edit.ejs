@@ -1,0 +1,47 @@
+<%- include('layouts/header') -%>
+
+  <%- include('adminHeader') -%>
+
+    <h2 class="page-heading">Edit Page</h2>
+
+    <section class="form-field">
+
+      <form action="/edit/<%= page._id %>" method="post" enctype="multipart/form-data" name="form-field">
+
+        <div class="input-container">
+          <label for="title" style="width: 115px;">Page Title:</label>
+          <input style="flex: 1;" type="text" name="title" id="title" value="<%= page.title %>" required> <br>
+
+        </div>
+
+        <div class="input-container">
+          <label for="myImage" style="width: 115px;">Hero Image:</label>
+          <input style="flex: 1;" id="txt" type="text" value="<%= page.imageName %>">
+          <Button class="browse-button" onclick="javascript:document.getElementById('file').click();"
+            type="button">Browse...</Button>
+          <input id="file" type="file" style='display: none;' name="myImage" id="myImage" accept="image/*"
+            onchange="ChangeText(this, 'txt');" />
+        </div>
+
+        <textarea name="desc" id="desc" cols="30" rows="10"><%= page.desc %></textarea> <br>
+
+        <input type="submit" value="Submit">
+
+      </form>
+    </section>
+
+    <script>
+
+      function ChangeText(oFileInput, sTargetID) {
+        document.getElementById(sTargetID).value = oFileInput.files?.[0]?.name;
+      }
+
+      tinymce.init({
+        selector: 'textarea',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap'
+      });
+
+    </script>
+
+    <%- include('layouts/footer') -%>

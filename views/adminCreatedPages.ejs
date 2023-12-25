@@ -1,0 +1,18 @@
+<%- include('layouts/header') -%>
+
+    <%- include('layouts/nav') -%>
+
+        <img src="/images/<%= page.imageName %>" alt="<%= page.imageName %>"
+            style="background-size: cover; width: 100%; height: 200px; margin: 12px 0;">
+
+        <h2 style="text-align: center;">
+            <%= page.title %>
+        </h2>
+
+        <div id="messagesGoHere"></div>
+
+        <%- include('layouts/footer') -%>
+
+            <script>
+                document.getElementById("messagesGoHere").innerHTML = `<%= page.desc %>`;
+            </script>

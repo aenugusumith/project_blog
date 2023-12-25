@@ -1,0 +1,22 @@
+<%- include('layouts/header') -%>
+    <table id="pages">
+        <thead>
+            <tr>
+                <th>Page</th>
+                <th>Manage</th>
+                <th>Manage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% pages.forEach(page=> { %>
+                <tr>
+                    <td>
+                        <%= page.title %>
+                    </td>
+                    <td><a href="/edit/<%= page._id %>">Edit</a></td>
+                    <td><a href="/delete/<%= page._id %>">Delete</a></td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+    <%- include('layouts/footer') -%>

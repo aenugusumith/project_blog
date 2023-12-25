@@ -1,0 +1,11 @@
+<nav>
+  <ul>
+    <% if (pages && pages.length> 0) { %>
+      <% for (let i=0; i < pages.length; i++) { %>
+        <li><a href="/dashboard/<%= pages[i]._id %>">
+            <%= pages[i].title %>
+          </a></li>
+        <% } %>
+          <% } %>
+  </ul>
+</nav>
